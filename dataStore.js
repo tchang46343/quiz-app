@@ -29,7 +29,7 @@ const Store = [
             'Cars do not need oil',
             'Cars get thirsty so they drink oil'
         ],
-        correctAnswer: 8,
+        correctAnswer: 0,
     },
 
     {
@@ -40,7 +40,7 @@ const Store = [
             'Check nothing and return back to customer',
             'All of the above'
         ],
-        correctAnswer: 12,
+        correctAnswer: 0,
     },
 
     {
@@ -51,7 +51,7 @@ const Store = [
             'Anti Brake System',
             'Alternator Bust System'
         ],
-        correctAnswer: 17,
+        correctAnswer: 1,
     },
     {
         Prompt: 'What are does  PRND stand for?',
@@ -61,6 +61,6 @@ const Store = [
             'Park, Reverse, Neutral, Drive',
             'All of the above'
         ],
-        correctAnswer: 20,
+        correctAnswer: 2,
     },
 ]

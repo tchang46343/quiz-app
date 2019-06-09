@@ -2,59 +2,52 @@ let questionNumber = 0;
 let score = 0;
 
 function generateQuestion(){
-if(questionNumber < Store.length){
-    return `<h2>${Store[questionNumber].Prompt}</h2>
-    <form class = "container">
-    <fieldset>
-    <label class = "answerChoice">
-    <input type="radio" value="${Store[questionNumber].answer[0]}" name="answer" required>
-    <span> ${Store[questionNumber].answer[0]}</span>
-    </label>
-    <label class="answerChoice">
-    <input type="radio" value="${Store[questionNumber].answer[1]}" name="answer" required>
-    <span>${Store[questionNumber].answer[1]}</span>
-    </label>
-    <label class="answerChoice">
-    <input type="radio" value="${Store[questionNumber].answer[2]}" name="answer" required>
-    <span>${Store[questionNumber].answer[2]}</span>
-    </label>
-    <label class="answerChoice">
-    <input type="radio" value="${Store[questionNumber].answer[3]}" name="answer" required>
-    <span>${Store[questionNumber].answer[3]}</span>
-    </label>
-    <button type="submit" class="submitButton">Submit</button>
-    </fieldset>
-    </form>
-    `;
-}
+    if(questionNumber < Store.length){
+        return `<h2>${Store[questionNumber].Prompt}</h2>
+        <form class = "container">
+        <fieldset>
+        <label class = "answerChoice">
+        <input type="radio" value="${Store[questionNumber].answer[0]}" name="answer" required>
+        <span> ${Store[questionNumber].answer[0]}</span>
+        </label>
+        <label class="answerChoice">
+        <input type="radio" value="${Store[questionNumber].answer[1]}" name="answer" required>
+        <span>${Store[questionNumber].answer[1]}</span>
+        </label>
+        <label class="answerChoice">
+        <input type="radio" value="${Store[questionNumber].answer[2]}" name="answer" required>
+        <span>${Store[questionNumber].answer[2]}</span>
+        </label>
+        <label class="answerChoice">
+        <input type="radio" value="${Store[questionNumber].answer[3]}" name="answer" required>
+        <span>${Store[questionNumber].answer[3]}</span>
+        </label>
+        <button type="submit" class="submitButton">Submit</button>
+        </fieldset>
+        </form>
+        `;
+    }
 
     else {
-    showResults();
-    restartQuiz();
-    $('.questionNumber').text(7);
+        showResults();
+        restartQuiz();
+        $('.questionNumber').text(7);
     }
 }
 
 function renderQuestion(){
-$('.questionAnswerForm').html(generateQuestion());
+    $('.questionAnswerForm').html(generateQuestion());
     userSelectAnswer();
-}
-
-function renderNextQuestion(){
-$('.submitButton').on('click','nextButton', function(event){
-    changeQuestion();
-    renderNextQuestion();
-    userSelectAnswer();
-});
 }
 
 function startQuiz(){
-$('.quizApp').on('click','.startTest',function (event){
-    $('.quizApp').remove();
-    $('.questionAnswerForm').css('display','block');
-    $('.questionNumber').text(1);
-    renderQuestion();
+    $('.quizApp').on('click','.startTest',function (event){
+        $('.quizApp').remove();
+        $('.questionAnswerForm').css('display','block');
+        $('.questionNumber').text(1);
+        renderQuestion();  
     });
+    displayNextQuestions();
 }
 //Below is all realted to user data, alowing the user to go through each each. This section accomplishes the user selection, update score if 
 //answer is correct, and also display the messages for wrong answer or right answers.
@@ -63,7 +56,6 @@ $('.quizApp').on('click','.startTest',function (event){
 function changeQuestion(){
     questionNumber++;
     $(".questionNumber").text(questionNumber+1);
-
 }
 
 function userSelectAnswer(){
@@ -75,7 +67,7 @@ function userSelectAnswer(){
         let correctAnswer = Store[questionNumber].answer[correctAnswerIndex];
         
         if (answerChoice === correctAnswer){
-            //console.log("correct answer");
+            
             choiceSelected.parent().addClass('correct');
             answerCorrect();
             reloadScore();
@@ -85,7 +77,6 @@ function userSelectAnswer(){
             choiceSelected.parent().addClass('wrong');
             answerWrong(correctAnswer);
         }
-        displayNextQuestions();
     });
 }
 function answerCorrect(){
@@ -94,7 +85,6 @@ function answerCorrect(){
 function answerWrong(correctAnswer){
     answerFeedbackInCorrect(correctAnswer);
 }
-
 function answerFeedbackCorrect(){
     let correctAnswer = `${Store[questionNumber].correctAnswer}`;
     $(".questionAnswerForm").html(`<div class = "correctFeedback"><p><b>Your answer is correct!</b>
@@ -109,10 +99,8 @@ function displayNextQuestions(){
     $('main').on('click','.nextButton',function (event){
         changeQuestion();
         renderQuestion();
-        userSelectAnswer();
     });
 }
-
 /************************************************************************************************************************************* */
 
 //This sections is code for when the user finsihes the test. THe functions we have that are nesscessary are reload score, show results,
@@ -120,31 +108,28 @@ function displayNextQuestions(){
 /************************************************************************************************************************************* */
 function changeScore(){
     score ++;
-   }
+}
 function reloadScore(){
     changeScore();
     $('.score').text(score);
 }
-
 function showResults(){
-if(score < 4){
-    $('.questionAnswerForm').html(`<div class = "passedTest"><h3> You pass the test you are a True Car Enthusiast!!!</h3> 
-    <img src = "https://www.picclickimg.com/d/l400/pict/272790505231_/DRIVING-TEST-CARD-Congratulations-Funny-Pass-Exam-For.jpg" alt="passIcon"/><p>Your total score was ${score}/7</p><p> For and even greater challenge play against your 
-    friends to see is Car knowledge Master</p><button class = "restartButton"> Play Again</button></div>`);
+    if(score > 4){
+        $('.questionAnswerForm').html(`<div class = "passedTest"><h3> You pass the test you are a True Car Enthusiast!!!</h3> 
+        <img src = "https://www.picclickimg.com/d/l400/pict/272790505231_/DRIVING-TEST-CARD-Congratulations-Funny-Pass-Exam-For.jpg" alt="passIcon"/><p>Your total score was ${score}/7</p><p> For and even greater challenge play against your 
+        friends to see is Car knowledge Master</p><button class = "restartButton"> Play Again</button></div>`);
     }
-else{
-    $('.questionAnswerForm').html(`<div class = "failedTest"><h3> You failed, but try again to improve your score. </h3> 
-    <img src = "https://i.ytimg.com/vi/KKXCJ1qp_Hs/hqdefault.jpg" alt="passIcon"/><p class = "failedScore">Your total score was ${score}/7</p><button class = "restartButton"> Play Again</button>
-    </div>`);
+    else {
+        $('.questionAnswerForm').html(`<div class = "failedTest"><h3> You failed, but try again to improve your score. </h3> 
+        <img src = "https://i.ytimg.com/vi/KKXCJ1qp_Hs/hqdefault.jpg" alt="passIcon"/><p class = "failedScore">Your total score was ${score}/7</p><button class = "restartButton"> Play Again</button>
+        </div>`);
     }
 }
-
 function restartQuiz(){
-$('main').on('click','.restartButton', function(event){
-    location.reload();
-});
+    $('main').on('click','.restartButton', function(event){
+        location.reload();
+    });
 }
-
 /*************************************************************************************************************************************** */
 
 //Below is the startup of our jQuery, the code below is designed to launch all the functions we just created. What is below envokes all 
@@ -152,9 +137,6 @@ $('main').on('click','.restartButton', function(event){
 /*************************************************************************************************************************************** */
 function createQuiz(){
     startQuiz();
-    //showResults();
-
-
 }
 
 $(createQuiz);
