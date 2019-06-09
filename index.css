@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ body{
+    background: url('https://t3.ftcdn.net/jpg/02/05/80/62/500_F_205806299_B47CtOM7iaWWt0fyXmPX1DtzXzQTHqiJ.jpg')fixed;
+    background-size: contain; 
+}
+.quizApp {
+    text-align:center;
+    position: fixed;
+    top: 40%;
+    left: 53%;
+    transform: translate(-53%,-40%);
+    color: black;
+    border: solid black 2px; 
+    border-radius: 5px;  
+    background-color: wheat; 
+    height: 100px;
+     border-width: medium; 
+    
+}
+button{
+    color: black;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+    background-color: salmon;
+    height: 30%;
+    border: solid black;
+    border-width: thin;
+    
+}
+.userStatus li{
+    display: inline-block;
+    text-align: right;
+    /* font-size: 25px; */
+    text-transform: uppercase;
+    padding: 10px 20px;
+    list-style: none;
+    }  
+h2{
+text-align: center;
+position:fixed;
+top: 30%;
+left: 53%;
+transform: translate(-53%,-30%);
+color: black;
+ } 
+.container{
+    width: 400px;
+    margin: 12% auto;
+    text-align: left;
+    border: none;
+    background-color: wheat;
+}
+.answerChoice{
+    display: block;
+}
+input{
+    vertical-align: top;
+}  
+
+input[type = "radio"]{
+    vertical-align: baseline;
+    
+}
+ @media screen and (min-width: 480px){
+     .userStatus{
+        width: 50%;
+        /*pushes to the bottom of header*/
+        align-self: flex-end;
+        display: flex;
+         /*pushes horizontal list to right*/
+        justify-content: flex-end;
+        font-size: 25px;
+    }
+    .mainLogo{
+        width: 50%;
+    }
+    header{
+        display: flex;
+    }
+    
+    .correctFeedback{
+        text-align:center;
+        position: fixed;
+        top: 40%;
+        left: 53%;
+        transform: translate(-53%,-40%);
+        color: black;
+        border: solid black 2px;
+        border-radius: 5px; 
+        background-color: wheat;
+        height: 100px;
+        border-width: medium;
+    }
+    
+    .incorrectFeedback{
+        text-align:center;
+        position: fixed;
+        top: 40%;
+        left: 53%;
+        transform: translate(-53%,-40%);
+        color: black;
+        border: solid black 2px;
+        border-radius: 5px; 
+        background-color: wheat;
+        height: 110px;
+        border-width: thin;
+    }
+
+
+    .failedTest{
+        text-align: center;
+        background-color: wheat;
+        border-radius: 5px;
+        border:solid turquoise;
+        height: 580px;
+        margin: 5%;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px; 
+    }
+    .passedTest{
+        text-align: center;
+        background-color: wheat;
+        border-radius: 5px;
+        border:solid turquoise;
+        height: 590px;
+        margin: 3%;
+        font-weight: bold;
+        font-size: 20px;
+        padding-top: 10px; 
+        padding-bottom: 15px; 
+    }
+     .restartButton{
+        display: inline-block;
+        height: 10%;
+        width: 20%;
+    } 
+    
+    
+} 
+/* display layout for tablet and mobile users */
+@media screen and (max-width: 479px){
+    .quizApp{
+        text-align: center;
+        border: solid black 2px;
+        border-radius: 5px; 
+        background-color:wheat;
+        border-width: medium;
+        height: 30%;
+        margin-top: 20%;
+    }
+    .carLogo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .questionAnswerForm{
+        margin-top: 30%;
+    }
+    .startTest{
+        margin: 25% auto;
+        display: block;
+    }
+    fieldset{
+        padding: 15px;
+        border: solid turquoise;
+        border-radius:8px;
+        }
+     header ul{
+        padding: 10px;
+        text-align: center;
+    }
+
+    h2{
+        margin-top: 10px;
+        padding: 15px;
+        border: solid turquoise;
+        background-color: wheat;
+        border-radius: 5px;
+        width: 400px;
+        
+    }
+    .submitButton{
+        margin: 0 auto;
+        display: block;
+    }
+    .correctFeedback{
+        margin-top: 10px;
+        padding: 15px;
+        border: solid turquoise;
+        background-color: wheat;
+        border-radius: 5px;
+        width: 80%;
+    }
+    .incorrectFeedback{
+        margin: 12%;
+        padding: 15px;
+        border: solid turquoise;
+        background-color: wheat;
+        border-radius: 5px;
+        width: 80%;
+
+    }
+     .h3{
+        margin:20px;
+    } 
+    .nextButton{
+        margin: 25px auto;
+    }
+    
+    .failedTest{
+        text-align: center;
+        background-color: wheat;
+        border-radius: 5px;
+        border:solid turquoise;
+    }
+    .restartButton{
+        margin: 0 auto;
+        display: block;
+    }
+
+
+}
