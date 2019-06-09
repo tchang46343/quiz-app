@@ -63,4 +63,14 @@ const Store = [
         ],
         correctAnswer: 2,
     },
+    {
+        Prompt: 'Which is valid Octane type?',
+        answer: [
+            '78',
+            '91',
+            '86',
+            '94'
+        ],
+        correctAnswer: 1,
+    },
 ]

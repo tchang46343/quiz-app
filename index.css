@@ -68,6 +68,10 @@ input[type = "radio"]{
     vertical-align: baseline;
     
 }
+.submitButton{
+    margin: 0 auto;
+    display: block;
+}
  @media screen and (min-width: 480px){
      .userStatus{
         width: 50%;
@@ -142,6 +146,8 @@ input[type = "radio"]{
         height: 10%;
         width: 20%;
     } 
+
+    
     
     
 } 
@@ -187,10 +193,7 @@ input[type = "radio"]{
         width: 400px;
         
     }
-    .submitButton{
-        margin: 0 auto;
-        display: block;
-    }
+    
     .correctFeedback{
         margin-top: 10px;
         padding: 15px;

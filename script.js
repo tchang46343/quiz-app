@@ -31,7 +31,8 @@ function generateQuestion(){
     else {
         showResults();
         restartQuiz();
-        $('.questionNumber').text(7);
+        // TODO: don't hard code
+        $('.questionNumber').text(Store.length);
     }
 }
 
